@@ -1,4 +1,4 @@
-# 1 "main_preLab.c"
+# 1 "main_Lab.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main_preLab.c" 2
-# 14 "main_preLab.c"
+# 1 "main_Lab.c" 2
+# 15 "main_Lab.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2644,12 +2644,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 2 3
-# 32 "main_preLab.c" 2
+# 33 "main_Lab.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 33 "main_preLab.c" 2
-# 47 "main_preLab.c"
+# 34 "main_Lab.c" 2
+# 48 "main_Lab.c"
 unsigned short CCPR = 0;
+unsigned short CCPR_2 = 0;
+
 
 
 
@@ -2663,9 +2665,15 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     if (PIR1bits.ADIF){
         if (ADCON0bits.CHS == 0){
-            CCPR = map(ADRESH, 0, 255, 30, 63);
+            CCPR = map(ADRESH, 0, 255, 16, 80);
             CCPR1L = (uint8_t)(CCPR>>2);
             CCP1CONbits.DC1B = CCPR & 0b11;
+        }
+        else if (ADCON0bits.CHS == 1){
+            CCPR_2 = map(ADRESH, 0, 255, 16, 80);
+            CCPR2L = (uint8_t)(CCPR_2>>2);
+            CCP2CONbits.DC2B0 = CCPR_2 & 0b01;
+            CCP2CONbits.DC2B1 = CCPR_2 & 0b10;
         }
         PIR1bits.ADIF = 0;
     }
@@ -2679,22 +2687,26 @@ void main(void) {
     while(1)
     {
        if(ADCON0bits.GO == 0){
-            ADCON0bits.GO = 1;
-        }
+            if(ADCON0bits.CHS == 0)
+                 ADCON0bits.CHS = 1;
+            else if(ADCON0bits.CHS == 1)
+                 ADCON0bits.CHS = 0;
+
+        _delay((unsigned long)((40)*(500000/4000000.0)));
+        ADCON0bits.GO = 1;
+       }
     }
 }
 
 void setup(void){
-    ANSEL = 0x01;
+    ANSEL = 0b00000011;
     ANSELH = 0;
 
-    OSCCONbits.IRCF = 0b011;
+    OSCCONbits.IRCF = 0b0011;
     OSCCONbits.SCS = 1;
 
-    TRISA = 0x01;
+    TRISA = 0b00000011;
     PORTA = 0;
-    TRISC = 0;
-    PORTC = 0;
 
 
     ADCON0bits.ADCS = 0b11;
@@ -2706,16 +2718,25 @@ void setup(void){
     _delay((unsigned long)((40)*(500000/4000000.0)));
 
 
-    CCP1CON = 0;
     TRISCbits.TRISC2 = 1;
-    PR2 = 155;
+    TRISCbits.TRISC1 = 1;
+    CCP1CON = 0;
+    CCP2CON = 0;
+    PR2 = 30;
 
 
     CCP1CONbits.P1M = 0;
     CCP1CONbits.CCP1M = 0b1100;
+    CCP2CONbits.CCP2M = 0b1100;
 
     CCPR1L = 30>>2;
     CCP1CONbits.DC1B = 30 & 0b11;
+
+
+    CCPR2L = 30>>2;
+    CCP2CONbits.DC2B0 = 30 & 0b01;
+    CCP2CONbits.DC2B1 = (30 & 0b10)>>1;
+
 
     PIR1bits.TMR2IF = 0;
     T2CONbits.T2CKPS = 0b11;
@@ -2724,14 +2745,16 @@ void setup(void){
     PIR1bits.TMR2IF = 0;
 
     TRISCbits.TRISC2 = 0;
+    TRISCbits.TRISC1 = 0;
 
 
     INTCONbits.GIE = 1;
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF = 0;
     INTCONbits.PEIE = 1;
+    return;
  }
-# 140 "main_preLab.c"
+# 164 "main_Lab.c"
 unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
             unsigned short y0, unsigned short y1){
     return (unsigned short)(y0+((float)(y1-y0)/(x1-x0))*(x-x0));
