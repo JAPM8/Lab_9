@@ -14,6 +14,7 @@
                    projectFiles="true">
       <itemPath>main_preLab.c</itemPath>
       <itemPath>main_Lab.c</itemPath>
+      <itemPath>main_postLab.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -163,6 +164,16 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <item path="main_Lab.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <item path="main_preLab.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>

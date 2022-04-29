@@ -35,8 +35,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1277
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1277: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
 [v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
-"56 main_Lab.c
-[; ;main_Lab.c: 56: unsigned short map(uint8_t val, uint8_t in_min, uint8_t in_max,
+"57 main_postLab.c
+[; ;main_postLab.c: 57: unsigned short map(uint8_t val, uint8_t in_min, uint8_t in_max,
 [v _map `(us ~T0 @X0 0 ef5`uc`uc`uc`us`us ]
 "1239 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1239: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
@@ -81,9 +81,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1189
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1189: extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0x01D)));
 [v _CCP2CONbits `VS41 ~T0 @X0 0 e@29 ]
+"466
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 466:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"476
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 476:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"465
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 465: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"483
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 483: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"297
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 297:     struct {
+[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"296
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 296: typedef union {
+[u S9 `S10 1 ]
+[n S9 . . ]
+"308
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 308: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
+"60
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 60: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
 [p mainexit ]
-"55 main_Lab.c
-[; ;main_Lab.c: 55: void setup(void);
+"56 main_postLab.c
+[; ;main_postLab.c: 56: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
@@ -162,21 +191,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "794
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 794: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x012)));
 [v _T2CONbits `VS26 ~T0 @X0 0 e@18 ]
-"466
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 466:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
-"476
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 476:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"465
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 465: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"483
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 483: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"1353
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1353:     struct {
+[s S50 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"1361
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1361:     struct {
+[s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . PS0 PS1 PS2 ]
+"1352
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1352: typedef union {
+[u S49 `S50 1 `S51 1 ]
+[n S49 . . . ]
+"1367
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1367: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS49 ~T0 @X0 0 e@129 ]
 "1709
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1709:     struct {
 [s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -188,29 +217,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1719
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1719: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
 [v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
-"15 main_Lab.c
+"14 main_postLab.c
 [p x FOSC  =  INTRC_NOCLKOUT ]
-"16
+"15
 [p x WDTE  =  OFF        ]
-"17
+"16
 [p x PWRTE  =  OFF       ]
-"18
+"17
 [p x MCLRE  =  OFF       ]
-"19
+"18
 [p x CP  =  OFF          ]
-"20
+"19
 [p x CPD  =  OFF         ]
-"21
+"20
 [p x BOREN  =  OFF       ]
-"22
+"21
 [p x IESO  =  OFF        ]
-"23
+"22
 [p x FCMEN  =  OFF       ]
-"24
+"23
 [p x LVP  =  OFF         ]
-"27
+"26
 [p x BOR4V  =  BOR40V    ]
-"28
+"27
 [p x WRT  =  OFF         ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 55: __asm("INDF equ 00h");
@@ -446,288 +475,385 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3547
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 3547: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"48 main_Lab.c
-[; ;main_Lab.c: 48: unsigned short CCPR = 0;
+"48 main_postLab.c
+[; ;main_postLab.c: 48: unsigned short CCPR = 0;
 [v _CCPR `us ~T0 @X0 1 e ]
 [i _CCPR
 -> -> 0 `i `us
 ]
 "49
-[; ;main_Lab.c: 49: unsigned short CCPR_2 = 0;
+[; ;main_postLab.c: 49: unsigned short CCPR_2 = 0;
 [v _CCPR_2 `us ~T0 @X0 1 e ]
 [i _CCPR_2
 -> -> 0 `i `us
 ]
+"50
+[; ;main_postLab.c: 50: unsigned short cont_tmr0;
+[v _cont_tmr0 `us ~T0 @X0 1 e ]
+"51
+[; ;main_postLab.c: 51: unsigned short pulse_w;
+[v _pulse_w `us ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"60
-[; ;main_Lab.c: 60: void __attribute__((picinterrupt(("")))) isr(void){
+"61
+[; ;main_postLab.c: 61: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"62
-[; ;main_Lab.c: 62:     if (PIR1bits.ADIF){
+"63
+[; ;main_postLab.c: 63:     if (PIR1bits.ADIF){
 [e $ ! != -> . . _PIR1bits 0 6 `i -> 0 `i 139  ]
 {
-"63
-[; ;main_Lab.c: 63:         if (ADCON0bits.CHS == 0){
+"64
+[; ;main_postLab.c: 64:         if (ADCON0bits.CHS == 0){
 [e $ ! == -> . . _ADCON0bits 0 2 `i -> 0 `i 140  ]
 {
-"64
-[; ;main_Lab.c: 64:             CCPR = map(ADRESH, 0, 255, 16, 80);
-[e = _CCPR ( _map (4 , , , , _ADRESH -> -> 0 `i `uc -> -> 255 `i `uc -> -> 16 `i `us -> -> 80 `i `us ]
 "65
-[; ;main_Lab.c: 65:             CCPR1L = (uint8_t)(CCPR>>2);
-[e = _CCPR1L -> >> -> _CCPR `ui -> 2 `i `uc ]
+[; ;main_postLab.c: 65:             CCPR = map(ADRESH, 0, 255, 30, 64);
+[e = _CCPR ( _map (4 , , , , _ADRESH -> -> 0 `i `uc -> -> 255 `i `uc -> -> 30 `i `us -> -> 64 `i `us ]
 "66
-[; ;main_Lab.c: 66:             CCP1CONbits.DC1B = CCPR & 0b11;
-[e = . . _CCP1CONbits 0 1 -> & -> _CCPR `ui -> -> 3 `i `ui `uc ]
+[; ;main_postLab.c: 66:             CCPR1L = (uint8_t)(CCPR>>2);
+[e = _CCPR1L -> >> -> _CCPR `ui -> 2 `i `uc ]
 "67
-[; ;main_Lab.c: 67:         }
+[; ;main_postLab.c: 67:             CCP1CONbits.DC1B = CCPR & 0b11;
+[e = . . _CCP1CONbits 0 1 -> & -> _CCPR `ui -> -> 3 `i `ui `uc ]
+"68
+[; ;main_postLab.c: 68:         }
 }
 [e $U 141  ]
-"68
-[; ;main_Lab.c: 68:         else if (ADCON0bits.CHS == 1){
+"69
+[; ;main_postLab.c: 69:         else if (ADCON0bits.CHS == 1){
 [e :U 140 ]
 [e $ ! == -> . . _ADCON0bits 0 2 `i -> 1 `i 142  ]
 {
-"69
-[; ;main_Lab.c: 69:             CCPR_2 = map(ADRESH, 0, 255, 16, 80);
-[e = _CCPR_2 ( _map (4 , , , , _ADRESH -> -> 0 `i `uc -> -> 255 `i `uc -> -> 16 `i `us -> -> 80 `i `us ]
 "70
-[; ;main_Lab.c: 70:             CCPR2L = (uint8_t)(CCPR_2>>2);
-[e = _CCPR2L -> >> -> _CCPR_2 `ui -> 2 `i `uc ]
+[; ;main_postLab.c: 70:             CCPR_2 = map(ADRESH, 0, 255, 30, 64);
+[e = _CCPR_2 ( _map (4 , , , , _ADRESH -> -> 0 `i `uc -> -> 255 `i `uc -> -> 30 `i `us -> -> 64 `i `us ]
 "71
-[; ;main_Lab.c: 71:             CCP2CONbits.DC2B0 = CCPR_2 & 0b01;
-[e = . . _CCP2CONbits 0 1 -> & -> _CCPR_2 `ui -> -> 1 `i `ui `uc ]
+[; ;main_postLab.c: 71:             CCPR2L = (uint8_t)(CCPR_2>>2);
+[e = _CCPR2L -> >> -> _CCPR_2 `ui -> 2 `i `uc ]
 "72
-[; ;main_Lab.c: 72:             CCP2CONbits.DC2B1 = CCPR_2 & 0b10;
-[e = . . _CCP2CONbits 0 2 -> & -> _CCPR_2 `ui -> -> 2 `i `ui `uc ]
+[; ;main_postLab.c: 72:             CCP2CONbits.DC2B0 = CCPR_2 & 0b01;
+[e = . . _CCP2CONbits 0 1 -> & -> _CCPR_2 `ui -> -> 1 `i `ui `uc ]
 "73
-[; ;main_Lab.c: 73:         }
-}
-[e :U 142 ]
-[e :U 141 ]
+[; ;main_postLab.c: 73:             CCP2CONbits.DC2B1 = CCPR_2 & 0b10;
+[e = . . _CCP2CONbits 0 2 -> & -> _CCPR_2 `ui -> -> 2 `i `ui `uc ]
 "74
-[; ;main_Lab.c: 74:         PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;main_postLab.c: 74:         }
+}
+[e $U 143  ]
 "75
-[; ;main_Lab.c: 75:     }
+[; ;main_postLab.c: 75:         else if (ADCON0bits.CHS == 2){
+[e :U 142 ]
+[e $ ! == -> . . _ADCON0bits 0 2 `i -> 2 `i 144  ]
+{
+"76
+[; ;main_postLab.c: 76:             pulse_w = CCPR_2 = map(ADRESH, 0, 255, 1, 9);;
+[e = _pulse_w = _CCPR_2 ( _map (4 , , , , _ADRESH -> -> 0 `i `uc -> -> 255 `i `uc -> -> 1 `i `us -> -> 9 `i `us ]
+"77
+[; ;main_postLab.c: 77:         }
+}
+[e :U 144 ]
+[e :U 143 ]
+[e :U 141 ]
+"78
+[; ;main_postLab.c: 78:         PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"79
+[; ;main_postLab.c: 79:     }
 }
 [e :U 139 ]
-"76
-[; ;main_Lab.c: 76:     return;
+"80
+[; ;main_postLab.c: 80:      if (INTCONbits.T0IF){
+[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 145  ]
+{
+"81
+[; ;main_postLab.c: 81:        cont_tmr0++;
+[e ++ _cont_tmr0 -> -> 1 `i `us ]
+"82
+[; ;main_postLab.c: 82:        if (cont_tmr0 == pulse_w) {
+[e $ ! == -> _cont_tmr0 `ui -> _pulse_w `ui 146  ]
+{
+"83
+[; ;main_postLab.c: 83:            PORTCbits.RC3 = 0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+"84
+[; ;main_postLab.c: 84:            return;
 [e $UE 138  ]
-"77
-[; ;main_Lab.c: 77: }
+"85
+[; ;main_postLab.c: 85:        }
+}
+[e :U 146 ]
+"86
+[; ;main_postLab.c: 86:        if (cont_tmr0 == 10) {
+[e $ ! == -> _cont_tmr0 `ui -> -> 10 `i `ui 147  ]
+{
+"87
+[; ;main_postLab.c: 87:         PORTCbits.RC3 = 1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+"88
+[; ;main_postLab.c: 88:         cont_tmr0 = 0;
+[e = _cont_tmr0 -> -> 0 `i `us ]
+"89
+[; ;main_postLab.c: 89:        }
+}
+[e :U 147 ]
+"90
+[; ;main_postLab.c: 90:        TMR0 = 255;
+[e = _TMR0 -> -> 255 `i `uc ]
+"91
+[; ;main_postLab.c: 91:        INTCONbits.T0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"92
+[; ;main_postLab.c: 92:     }
+}
+[e :U 145 ]
+"93
+[; ;main_postLab.c: 93:     return;
+[e $UE 138  ]
+"94
+[; ;main_postLab.c: 94: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"79
-[; ;main_Lab.c: 79: void main(void) {
+"96
+[; ;main_postLab.c: 96: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"81
-[; ;main_Lab.c: 81:     setup();
+"98
+[; ;main_postLab.c: 98:     setup();
 [e ( _setup ..  ]
-"83
-[; ;main_Lab.c: 83:     while(1)
-[e :U 145 ]
-"84
-[; ;main_Lab.c: 84:     {
-{
-"85
-[; ;main_Lab.c: 85:        if(ADCON0bits.GO == 0){
-[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 147  ]
-{
-"86
-[; ;main_Lab.c: 86:             if(ADCON0bits.CHS == 0)
-[e $ ! == -> . . _ADCON0bits 0 2 `i -> 0 `i 148  ]
-"87
-[; ;main_Lab.c: 87:                  ADCON0bits.CHS = 1;
-[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
-[e $U 149  ]
-"88
-[; ;main_Lab.c: 88:             else if(ADCON0bits.CHS == 1)
-[e :U 148 ]
-[e $ ! == -> . . _ADCON0bits 0 2 `i -> 1 `i 150  ]
-"89
-[; ;main_Lab.c: 89:                  ADCON0bits.CHS = 0;
-[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+"100
+[; ;main_postLab.c: 100:     while(1)
 [e :U 150 ]
-[e :U 149 ]
-"91
-[; ;main_Lab.c: 91:         _delay((unsigned long)((40)*(500000/4000000.0)));
+"101
+[; ;main_postLab.c: 101:     {
+{
+"102
+[; ;main_postLab.c: 102:        if(ADCON0bits.GO == 0){
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 152  ]
+{
+"103
+[; ;main_postLab.c: 103:             if(ADCON0bits.CHS == 0)
+[e $ ! == -> . . _ADCON0bits 0 2 `i -> 0 `i 153  ]
+"104
+[; ;main_postLab.c: 104:                  ADCON0bits.CHS = 1;
+[e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
+[e $U 154  ]
+"105
+[; ;main_postLab.c: 105:             else if(ADCON0bits.CHS == 1)
+[e :U 153 ]
+[e $ ! == -> . . _ADCON0bits 0 2 `i -> 1 `i 155  ]
+"106
+[; ;main_postLab.c: 106:                  ADCON0bits.CHS = 2;
+[e = . . _ADCON0bits 0 2 -> -> 2 `i `uc ]
+[e $U 156  ]
+"107
+[; ;main_postLab.c: 107:             else if(ADCON0bits.CHS == 2)
+[e :U 155 ]
+[e $ ! == -> . . _ADCON0bits 0 2 `i -> 2 `i 157  ]
+"108
+[; ;main_postLab.c: 108:                  ADCON0bits.CHS = 0;
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+[e :U 157 ]
+[e :U 156 ]
+[e :U 154 ]
+"109
+[; ;main_postLab.c: 109:         _delay((unsigned long)((40)*(500000/4000000.0)));
 [e ( __delay (1 -> * -> -> 40 `i `d / -> -> 500000 `l `d .4000000.0 `ul ]
-"92
-[; ;main_Lab.c: 92:         ADCON0bits.GO = 1;
+"110
+[; ;main_postLab.c: 110:         ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-"93
-[; ;main_Lab.c: 93:        }
+"111
+[; ;main_postLab.c: 111:        }
 }
-[e :U 147 ]
-"94
-[; ;main_Lab.c: 94:     }
+[e :U 152 ]
+"112
+[; ;main_postLab.c: 112:     }
 }
-[e :U 144 ]
-[e $U 145  ]
-[e :U 146 ]
-"95
-[; ;main_Lab.c: 95: }
-[e :UE 143 ]
+[e :U 149 ]
+[e $U 150  ]
+[e :U 151 ]
+"113
+[; ;main_postLab.c: 113:     return;
+[e $UE 148  ]
+"114
+[; ;main_postLab.c: 114: }
+[e :UE 148 ]
 }
-"97
-[; ;main_Lab.c: 97: void setup(void){
+"116
+[; ;main_postLab.c: 116: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"98
-[; ;main_Lab.c: 98:     ANSEL = 0b00000011;
-[e = _ANSEL -> -> 3 `i `uc ]
-"99
-[; ;main_Lab.c: 99:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"101
-[; ;main_Lab.c: 101:     OSCCONbits.IRCF = 0b0011;
-[e = . . _OSCCONbits 0 4 -> -> 3 `i `uc ]
-"102
-[; ;main_Lab.c: 102:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"104
-[; ;main_Lab.c: 104:     TRISA = 0b00000011;
-[e = _TRISA -> -> 3 `i `uc ]
-"105
-[; ;main_Lab.c: 105:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
-"108
-[; ;main_Lab.c: 108:     ADCON0bits.ADCS = 0b11;
-[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
-"109
-[; ;main_Lab.c: 109:     ADCON1bits.VCFG0 = 0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-"110
-[; ;main_Lab.c: 110:     ADCON1bits.VCFG1 = 0;
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
-"111
-[; ;main_Lab.c: 111:     ADCON0bits.CHS = 0;
-[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
-"112
-[; ;main_Lab.c: 112:     ADCON1bits.ADFM = 0;
-[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
-"113
-[; ;main_Lab.c: 113:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"114
-[; ;main_Lab.c: 114:     _delay((unsigned long)((40)*(500000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 500000 `l `d .4000000.0 `ul ]
 "117
-[; ;main_Lab.c: 117:     TRISCbits.TRISC2 = 1;
-[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
+[; ;main_postLab.c: 117:     ANSEL = 0b00000111;
+[e = _ANSEL -> -> 7 `i `uc ]
 "118
-[; ;main_Lab.c: 118:     TRISCbits.TRISC1 = 1;
-[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
-"119
-[; ;main_Lab.c: 119:     CCP1CON = 0;
-[e = _CCP1CON -> -> 0 `i `uc ]
+[; ;main_postLab.c: 118:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "120
-[; ;main_Lab.c: 120:     CCP2CON = 0;
-[e = _CCP2CON -> -> 0 `i `uc ]
+[; ;main_postLab.c: 120:     OSCCONbits.IRCF = 0b011;
+[e = . . _OSCCONbits 0 4 -> -> 3 `i `uc ]
 "121
-[; ;main_Lab.c: 121:     PR2 = 30;
-[e = _PR2 -> -> 30 `i `uc ]
+[; ;main_postLab.c: 121:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"123
+[; ;main_postLab.c: 123:     TRISA = 0b00000111;
+[e = _TRISA -> -> 7 `i `uc ]
 "124
-[; ;main_Lab.c: 124:     CCP1CONbits.P1M = 0;
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-"125
-[; ;main_Lab.c: 125:     CCP1CONbits.CCP1M = 0b1100;
-[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-"126
-[; ;main_Lab.c: 126:     CCP2CONbits.CCP2M = 0b1100;
-[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
+[; ;main_postLab.c: 124:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"127
+[; ;main_postLab.c: 127:     ADCON0bits.ADCS = 0b11;
+[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
 "128
-[; ;main_Lab.c: 128:     CCPR1L = 30>>2;
-[e = _CCPR1L -> >> -> 30 `i -> 2 `i `uc ]
+[; ;main_postLab.c: 128:     ADCON1bits.VCFG0 = 0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
 "129
-[; ;main_Lab.c: 129:     CCP1CONbits.DC1B = 30 & 0b11;
-[e = . . _CCP1CONbits 0 1 -> & -> 30 `i -> 3 `i `uc ]
+[; ;main_postLab.c: 129:     ADCON1bits.VCFG1 = 0;
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+"130
+[; ;main_postLab.c: 130:     ADCON0bits.CHS = 0;
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+"131
+[; ;main_postLab.c: 131:     ADCON1bits.ADFM = 0;
+[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
 "132
-[; ;main_Lab.c: 132:     CCPR2L = 30>>2;
-[e = _CCPR2L -> >> -> 30 `i -> 2 `i `uc ]
+[; ;main_postLab.c: 132:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 "133
-[; ;main_Lab.c: 133:     CCP2CONbits.DC2B0 = 30 & 0b01;
-[e = . . _CCP2CONbits 0 1 -> & -> 30 `i -> 1 `i `uc ]
-"134
-[; ;main_Lab.c: 134:     CCP2CONbits.DC2B1 = (30 & 0b10)>>1;
-[e = . . _CCP2CONbits 0 2 -> >> & -> 30 `i -> 2 `i -> 1 `i `uc ]
+[; ;main_postLab.c: 133:     _delay((unsigned long)((40)*(500000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 500000 `l `d .4000000.0 `ul ]
+"136
+[; ;main_postLab.c: 136:     TRISCbits.TRISC2 = 1;
+[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
 "137
-[; ;main_Lab.c: 137:     PIR1bits.TMR2IF = 0;
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;main_postLab.c: 137:     TRISCbits.TRISC1 = 1;
+[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
 "138
-[; ;main_Lab.c: 138:     T2CONbits.T2CKPS = 0b11;
-[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
+[; ;main_postLab.c: 138:     CCP1CON = 0;
+[e = _CCP1CON -> -> 0 `i `uc ]
 "139
-[; ;main_Lab.c: 139:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;main_postLab.c: 139:     CCP2CON = 0;
+[e = _CCP2CON -> -> 0 `i `uc ]
 "140
-[; ;main_Lab.c: 140:     while(!PIR1bits.TMR2IF);
-[e $U 152  ]
-[e :U 153 ]
-[e :U 152 ]
-[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 153  ]
-[e :U 154 ]
-"141
-[; ;main_Lab.c: 141:     PIR1bits.TMR2IF = 0;
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;main_postLab.c: 140:     PR2 = 155;
+[e = _PR2 -> -> 155 `i `uc ]
 "143
-[; ;main_Lab.c: 143:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;main_postLab.c: 143:     CCP1CONbits.P1M = 0;
+[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
 "144
-[; ;main_Lab.c: 144:     TRISCbits.TRISC1 = 0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+[; ;main_postLab.c: 144:     CCP1CONbits.CCP1M = 0b1100;
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+"145
+[; ;main_postLab.c: 145:     CCP2CONbits.CCP2M = 0b1100;
+[e = . . _CCP2CONbits 0 0 -> -> 12 `i `uc ]
 "147
-[; ;main_Lab.c: 147:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main_postLab.c: 147:     CCPR1L = 30>>2;
+[e = _CCPR1L -> >> -> 30 `i -> 2 `i `uc ]
 "148
-[; ;main_Lab.c: 148:     PIE1bits.ADIE = 1;
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-"149
-[; ;main_Lab.c: 149:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"150
-[; ;main_Lab.c: 150:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main_postLab.c: 148:     CCP1CONbits.DC1B = 30 & 0b11;
+[e = . . _CCP1CONbits 0 1 -> & -> 30 `i -> 3 `i `uc ]
 "151
-[; ;main_Lab.c: 151:     return;
-[e $UE 151  ]
+[; ;main_postLab.c: 151:     CCPR2L = 30>>2;
+[e = _CCPR2L -> >> -> 30 `i -> 2 `i `uc ]
 "152
-[; ;main_Lab.c: 152:  }
-[e :UE 151 ]
-}
+[; ;main_postLab.c: 152:     CCP2CONbits.DC2B0 = 30 & 0b01;
+[e = . . _CCP2CONbits 0 1 -> & -> 30 `i -> 1 `i `uc ]
+"153
+[; ;main_postLab.c: 153:     CCP2CONbits.DC2B1 = (30 & 0b10)>>1;
+[e = . . _CCP2CONbits 0 2 -> >> & -> 30 `i -> 2 `i -> 1 `i `uc ]
+"156
+[; ;main_postLab.c: 156:     PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"157
+[; ;main_postLab.c: 157:     T2CONbits.T2CKPS = 0b11;
+[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
+"158
+[; ;main_postLab.c: 158:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"159
+[; ;main_postLab.c: 159:     while(!PIR1bits.TMR2IF);
+[e $U 159  ]
+[e :U 160 ]
+[e :U 159 ]
+[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 160  ]
+[e :U 161 ]
+"160
+[; ;main_postLab.c: 160:     PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"162
+[; ;main_postLab.c: 162:     TRISCbits.TRISC3 = 0;
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+"163
+[; ;main_postLab.c: 163:     TRISCbits.TRISC2 = 0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 "164
-[; ;main_Lab.c: 164: unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
+[; ;main_postLab.c: 164:     TRISCbits.TRISC1 = 0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"167
+[; ;main_postLab.c: 167:     OPTION_REGbits.T0CS = 0;
+[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
+"168
+[; ;main_postLab.c: 168:     OPTION_REGbits.PSA = 0;
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
+"169
+[; ;main_postLab.c: 169:     OPTION_REGbits.PS2 = 1;
+[e = . . _OPTION_REGbits 1 2 -> -> 1 `i `uc ]
+"170
+[; ;main_postLab.c: 170:     OPTION_REGbits.PS1 = 1;
+[e = . . _OPTION_REGbits 1 1 -> -> 1 `i `uc ]
+"171
+[; ;main_postLab.c: 171:     OPTION_REGbits.PS0 = 1;
+[e = . . _OPTION_REGbits 1 0 -> -> 1 `i `uc ]
+"172
+[; ;main_postLab.c: 172:     TMR0 = 255;
+[e = _TMR0 -> -> 255 `i `uc ]
+"175
+[; ;main_postLab.c: 175:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"176
+[; ;main_postLab.c: 176:     PIE1bits.ADIE = 1;
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"177
+[; ;main_postLab.c: 177:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"178
+[; ;main_postLab.c: 178:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"179
+[; ;main_postLab.c: 179:     return;
+[e $UE 158  ]
+"180
+[; ;main_postLab.c: 180:  }
+[e :UE 158 ]
+}
+"192
+[; ;main_postLab.c: 192: unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
 [v _map `(us ~T0 @X0 1 ef5`uc`uc`uc`us`us ]
-"165
-[; ;main_Lab.c: 165:             unsigned short y0, unsigned short y1){
+"193
+[; ;main_postLab.c: 193:             unsigned short y0, unsigned short y1){
 {
 [e :U _map ]
-"164
-[; ;main_Lab.c: 164: unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
+"192
+[; ;main_postLab.c: 192: unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _x0 `uc ~T0 @X0 1 r2 ]
 [v _x1 `uc ~T0 @X0 1 r3 ]
-"165
-[; ;main_Lab.c: 165:             unsigned short y0, unsigned short y1){
+"193
+[; ;main_postLab.c: 193:             unsigned short y0, unsigned short y1){
 [v _y0 `us ~T0 @X0 1 r4 ]
 [v _y1 `us ~T0 @X0 1 r5 ]
 [f ]
-"166
-[; ;main_Lab.c: 166:     return (unsigned short)(y0+((float)(y1-y0)/(x1-x0))*(x-x0));
+"194
+[; ;main_postLab.c: 194:     return (unsigned short)(y0+((float)(y1-y0)/(x1-x0))*(x-x0));
 [e ) -> + -> -> _y0 `ui `f * / -> - -> _y1 `ui -> _y0 `ui `f -> - -> _x1 `i -> _x0 `i `f -> - -> _x `i -> _x0 `i `f `us ]
-[e $UE 155  ]
-"167
-[; ;main_Lab.c: 167: }
-[e :UE 155 ]
+[e $UE 162  ]
+"195
+[; ;main_postLab.c: 195: }
+[e :UE 162 ]
 }
