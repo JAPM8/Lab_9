@@ -2677,12 +2677,15 @@ void __attribute__((picinterrupt(("")))) isr(void){
             CCP2CONbits.DC2B1 = CCPR_2 & 0b10;
         }
         else if (ADCON0bits.CHS == 2){
-            pulse_w = CCPR_2 = map(ADRESH, 0, 255, 1, 9);;
+            PORTD = map(ADRESH, 0, 255, 1, 9);;
+            pulse_w = 2;
         }
         PIR1bits.ADIF = 0;
     }
      if (INTCONbits.T0IF){
        cont_tmr0++;
+       TMR0 = 255;
+       INTCONbits.T0IF = 0;
        if (cont_tmr0 == pulse_w) {
            PORTCbits.RC3 = 0;
            return;
@@ -2691,8 +2694,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
         PORTCbits.RC3 = 1;
         cont_tmr0 = 0;
        }
-       TMR0 = 255;
-       INTCONbits.T0IF = 0;
     }
     return;
 }
@@ -2726,6 +2727,8 @@ void setup(void){
 
     TRISA = 0b00000111;
     PORTA = 0;
+    TRISD = 0;
+    PORTD = 0;
 
 
     ADCON0bits.ADCS = 0b11;
@@ -2782,7 +2785,7 @@ void setup(void){
     INTCONbits.PEIE = 1;
     return;
  }
-# 192 "main_postLab.c"
+# 195 "main_postLab.c"
 unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
             unsigned short y0, unsigned short y1){
     return (unsigned short)(y0+((float)(y1-y0)/(x1-x0))*(x-x0));

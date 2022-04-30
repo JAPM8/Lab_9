@@ -73,12 +73,15 @@ void __interrupt() isr(void){
             CCP2CONbits.DC2B1 = CCPR_2 & 0b10; // Se guardan los 2 bits menos significativos en DC2B
         }
         else if (ADCON0bits.CHS == 2){ //Se verifica canal AN2        
-            pulse_w = CCPR_2 = map(ADRESH, IN_MIN, IN_MAX, 1, 9);; // Valor de ancho de pulso variable
+            PORTD = map(ADRESH, IN_MIN, IN_MAX, 1, 9);; // Valor de ancho de pulso variable
+            pulse_w = 2;
         }
         PIR1bits.ADIF = 0; // Limpiamos bandera ADC
     }
      if (INTCONbits.T0IF){ 
-       cont_tmr0++; //Contador de 0.2 ms
+       cont_tmr0++; //Contador de .2 ms
+       TMR0 = _tmr0_value;  //Reinicio de TMR0
+       INTCONbits.T0IF = 0; //Limpieza de bandera
        if (cont_tmr0 == pulse_w) { //Se verifica si contador TMR0 igual al ancho de pulso
            PORTCbits.RC3 = 0; //Como ya se alcanzó ancho deseado se pasa a 0
            return;
@@ -87,8 +90,6 @@ void __interrupt() isr(void){
         PORTCbits.RC3 = 1; //Se pasa a 1
         cont_tmr0 = 0; //Reinicio de contador
        }
-       TMR0 = _tmr0_value;  //Reinicio de TMR0
-       INTCONbits.T0IF = 0; //Limpieza de bandera
     }
     return;
 }
@@ -122,6 +123,8 @@ void setup(void){
     
     TRISA = 0b00000111; //PORTA0/AN0 PORTA0/AN0, PORTA1/AN1 y PORTA2/AN2 como INPUT    
     PORTA = 0;    //CLEAR DE PUERTO A  
+    TRISD = 0;
+    PORTD = 0;
       
     //Config ADC
     ADCON0bits.ADCS = 0b11; // FRC
