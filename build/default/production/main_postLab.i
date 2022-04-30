@@ -2648,11 +2648,12 @@ extern __bank0 __bit __timeout;
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
 # 33 "main_postLab.c" 2
-# 48 "main_postLab.c"
+# 49 "main_postLab.c"
 unsigned short CCPR = 0;
 unsigned short CCPR_2 = 0;
 unsigned short cont_tmr0;
 unsigned short pulse_w;
+unsigned short tiempo_h;
 
 
 
@@ -2677,23 +2678,9 @@ void __attribute__((picinterrupt(("")))) isr(void){
             CCP2CONbits.DC2B1 = CCPR_2 & 0b10;
         }
         else if (ADCON0bits.CHS == 2){
-            PORTD = map(ADRESH, 0, 255, 1, 9);;
-            pulse_w = 2;
+            tiempo_h = map(ADRESH, 0, 255, 0, 20);
         }
         PIR1bits.ADIF = 0;
-    }
-     if (INTCONbits.T0IF){
-       cont_tmr0++;
-       TMR0 = 255;
-       INTCONbits.T0IF = 0;
-       if (cont_tmr0 == pulse_w) {
-           PORTCbits.RC3 = 0;
-           return;
-       }
-       if (cont_tmr0 == 10) {
-        PORTCbits.RC3 = 1;
-        cont_tmr0 = 0;
-       }
     }
     return;
 }
@@ -2713,6 +2700,17 @@ void main(void) {
                  ADCON0bits.CHS = 0;
         _delay((unsigned long)((40)*(500000/4000000.0)));
         ADCON0bits.GO = 1;
+       }
+       if (INTCONbits.T0IF){
+       cont_tmr0++;
+       TMR0 = 255;
+       INTCONbits.T0IF = 0;
+       if (cont_tmr0 <= tiempo_h)
+           PORTCbits.RC3 = 1;
+       else
+           PORTCbits.RC3 = 0;
+       if (cont_tmr0 >= 20)
+           cont_tmr0 = 0;
        }
     }
     return;
@@ -2773,7 +2771,7 @@ void setup(void){
 
     OPTION_REGbits.T0CS = 0;
     OPTION_REGbits.PSA = 0;
-    OPTION_REGbits.PS2 = 1;
+    OPTION_REGbits.PS2 = 0;
     OPTION_REGbits.PS1 = 1;
     OPTION_REGbits.PS0 = 1;
     TMR0 = 255;
@@ -2785,7 +2783,7 @@ void setup(void){
     INTCONbits.PEIE = 1;
     return;
  }
-# 195 "main_postLab.c"
+# 194 "main_postLab.c"
 unsigned short map(uint8_t x, uint8_t x0, uint8_t x1,
             unsigned short y0, unsigned short y1){
     return (unsigned short)(y0+((float)(y1-y0)/(x1-x0))*(x-x0));

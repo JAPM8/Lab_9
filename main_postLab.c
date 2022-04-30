@@ -31,12 +31,14 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <pic16f887.h>
 
 /*
  * CONSTANTES
  */
 #define _XTAL_FREQ 500000
-#define _tmr0_value 255 //TMR0 a 2 ms
+#define _tmr0_value 255 //TMR0 a 1 ms
 #define IN_MIN 0 // Valor mínimo de entrada del potenciometro
 #define IN_MAX 255 // Valor máximo de entrada del potenciometro
 #define OUT_MIN 30  //Valor mínimo de ancho de pulso de señal PWM
@@ -49,6 +51,7 @@ unsigned short CCPR = 0; //Variable para almacenar ancho de pulso en interpolaci
 unsigned short CCPR_2 = 0; //Variable para almacenar ancho de pulso en interpolación lineal 2
 unsigned short cont_tmr0; //Contador de interrupciones de TMR0
 unsigned short pulse_w; //Ancho de pulso variado por POT
+unsigned short tiempo_h; //Tiempo en high
 
 /*
  * PROTOTIPO DE FUNCIÓN
@@ -73,23 +76,9 @@ void __interrupt() isr(void){
             CCP2CONbits.DC2B1 = CCPR_2 & 0b10; // Se guardan los 2 bits menos significativos en DC2B
         }
         else if (ADCON0bits.CHS == 2){ //Se verifica canal AN2        
-            PORTD = map(ADRESH, IN_MIN, IN_MAX, 1, 9);; // Valor de ancho de pulso variable
-            pulse_w = 2;
+            tiempo_h = map(ADRESH, IN_MIN, IN_MAX, 0, 20); // Valor de ancho de pulso variable
         }
         PIR1bits.ADIF = 0; // Limpiamos bandera ADC
-    }
-     if (INTCONbits.T0IF){ 
-       cont_tmr0++; //Contador de .2 ms
-       TMR0 = _tmr0_value;  //Reinicio de TMR0
-       INTCONbits.T0IF = 0; //Limpieza de bandera
-       if (cont_tmr0 == pulse_w) { //Se verifica si contador TMR0 igual al ancho de pulso
-           PORTCbits.RC3 = 0; //Como ya se alcanzó ancho deseado se pasa a 0
-           return;
-       }
-       if (cont_tmr0 == 10) { //Se verifica período de 20 ms
-        PORTCbits.RC3 = 1; //Se pasa a 1
-        cont_tmr0 = 0; //Reinicio de contador
-       }
     }
     return;
 }
@@ -109,6 +98,17 @@ void main(void) {
                  ADCON0bits.CHS = 0;    // Cambio a AN0
         __delay_us(40); //Sample time
         ADCON0bits.GO = 1; // Se inicia proceso de conversión
+       }
+       if (INTCONbits.T0IF){ 
+       cont_tmr0++; //Contador de 1 ms
+       TMR0 = _tmr0_value;  //Reinicio de TMR0
+       INTCONbits.T0IF = 0; //Limpieza de bandera
+       if (cont_tmr0 <= tiempo_h) //Se verifica si contador TMR0 es menor o igual al ancho de pulso
+           PORTCbits.RC3 = 1; //Se mantiene en 1 la señal
+       else
+           PORTCbits.RC3 = 0; //Se pasa a 0 la señal al momento que el contador es mayor al ancho de pulso
+       if (cont_tmr0 >= 20) //Se verifica período de 20 ms
+           cont_tmr0 = 0; //Se reinicia contador para un nuevo ciclo de señal
        }
     }
     return;
@@ -166,13 +166,13 @@ void setup(void){
     TRISCbits.TRISC2 = 0;       // Se habilita salida de PWM (CCP2)
     TRISCbits.TRISC1 = 0;       // Se habilita salida de PWM (CCP2)
     
-    //Timer0 Registers Prescaler= 256 - TMR0 Preset = 217 - Freq = 100.16 Hz - Period = 0.009984 seconds
+    //Timer0 Registers Prescaler= 128 - TMR0 Preset = 255 - Freq = 976.56 Hz - Period = 0.001024 seconds
     OPTION_REGbits.T0CS = 0;  // bit 5  TMR0 Clock Source Select bit...0 = Internal Clock (CLKO) 1 = Transition on T0CKI pin
     OPTION_REGbits.PSA = 0;   // bit 3  Prescaler Assignment bit...0 = Prescaler is assigned to the Timer0
-    OPTION_REGbits.PS2 = 1;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits 1:256
+    OPTION_REGbits.PS2 = 0;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits 1:1
     OPTION_REGbits.PS1 = 1;
     OPTION_REGbits.PS0 = 1;
-    TMR0 = _tmr0_value;       // preset for timer register a 0.2 ms
+    TMR0 = _tmr0_value;       // preset for timer register a 1 ms
 
     //Config interrupciones
     INTCONbits.GIE = 1; //Se habilitan interrupciones globales
