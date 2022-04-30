@@ -76,10 +76,23 @@ void __interrupt() isr(void){
             CCP2CONbits.DC2B1 = CCPR_2 & 0b10; // Se guardan los 2 bits menos significativos en DC2B
         }
         else if (ADCON0bits.CHS == 2){ //Se verifica canal AN2        
-            tiempo_h = map(ADRESH, IN_MIN, IN_MAX, 0, 20); // Valor de ancho de pulso variable
+            tiempo_h = map(ADRESH, IN_MIN, IN_MAX, 0, 10); // Valor de ancho de pulso variable
         }
         PIR1bits.ADIF = 0; // Limpiamos bandera ADC
     }
+    if (INTCONbits.T0IF){ 
+       cont_tmr0++; //Contador de 1 ms
+       TMR0 = _tmr0_value;  //Reinicio de TMR0
+       if (cont_tmr0 <= tiempo_h) //Se verifica si contador TMR0 es menor o igual al ancho de pulso
+           PORTCbits.RC3 = 1; //Se mantiene en 1 la señal
+       else
+           PORTCbits.RC3 = 0; //Se pasa a 0 la señal al momento que el contador es mayor al ancho de pulso
+       if (cont_tmr0 >= 10){//Se verifica período de 10 ms
+           cont_tmr0 = 0; //Se reinicia contador para un nuevo ciclo de señal
+           PORTCbits.RC3 = 1; //Se mantiene en 1 la señal
+       }
+       INTCONbits.T0IF = 0; //Limpieza de bandera
+       }
     return;
 }
 
@@ -99,17 +112,6 @@ void main(void) {
         __delay_us(40); //Sample time
         ADCON0bits.GO = 1; // Se inicia proceso de conversión
        }
-       if (INTCONbits.T0IF){ 
-       cont_tmr0++; //Contador de 1 ms
-       TMR0 = _tmr0_value;  //Reinicio de TMR0
-       INTCONbits.T0IF = 0; //Limpieza de bandera
-       if (cont_tmr0 <= tiempo_h) //Se verifica si contador TMR0 es menor o igual al ancho de pulso
-           PORTCbits.RC3 = 1; //Se mantiene en 1 la señal
-       else
-           PORTCbits.RC3 = 0; //Se pasa a 0 la señal al momento que el contador es mayor al ancho de pulso
-       if (cont_tmr0 >= 20) //Se verifica período de 20 ms
-           cont_tmr0 = 0; //Se reinicia contador para un nuevo ciclo de señal
-       }
     }
     return;
 }
@@ -123,14 +125,20 @@ void setup(void){
     
     TRISA = 0b00000111; //PORTA0/AN0 PORTA0/AN0, PORTA1/AN1 y PORTA2/AN2 como INPUT    
     PORTA = 0;    //CLEAR DE PUERTO A  
-    TRISD = 0;
-    PORTD = 0;
-      
+       
+    //Timer0 Registers Prescaler= 128 - TMR0 Preset = 255 - Freq = 976.56 Hz - Period = 0.001024 seconds
+    OPTION_REGbits.T0CS = 0;  // bit 5  TMR0 Clock Source Select bit...0 = Internal Clock (CLKO) 1 = Transition on T0CKI pin
+    OPTION_REGbits.PSA = 0;   // bit 3  Prescaler Assignment bit...0 = Prescaler is assigned to the Timer0
+    OPTION_REGbits.PS2 = 0;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits 1:128
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS0 = 1;
+    TMR0 = _tmr0_value;       // preset for timer register a 1 ms
+    
     //Config ADC
     ADCON0bits.ADCS = 0b11; // FRC
     ADCON1bits.VCFG0 = 0;  // Referencia VDD
     ADCON1bits.VCFG1 = 0;  // Referencia VSS
-    ADCON0bits.CHS = 0; // Se selecciona PORTA0/AN0
+    ADCON0bits.CHS = 2; // Se selecciona PORTA2/AN2
     ADCON1bits.ADFM = 0; // Se indica que se tendrá un justificado a la izquierda
     ADCON0bits.ADON = 1; // Se habilita el modulo ADC
     __delay_us(40);     // Delay para sample time
@@ -166,19 +174,13 @@ void setup(void){
     TRISCbits.TRISC2 = 0;       // Se habilita salida de PWM (CCP2)
     TRISCbits.TRISC1 = 0;       // Se habilita salida de PWM (CCP2)
     
-    //Timer0 Registers Prescaler= 128 - TMR0 Preset = 255 - Freq = 976.56 Hz - Period = 0.001024 seconds
-    OPTION_REGbits.T0CS = 0;  // bit 5  TMR0 Clock Source Select bit...0 = Internal Clock (CLKO) 1 = Transition on T0CKI pin
-    OPTION_REGbits.PSA = 0;   // bit 3  Prescaler Assignment bit...0 = Prescaler is assigned to the Timer0
-    OPTION_REGbits.PS2 = 0;   // bits 2-0  PS2:PS0: Prescaler Rate Select bits 1:1
-    OPTION_REGbits.PS1 = 1;
-    OPTION_REGbits.PS0 = 1;
-    TMR0 = _tmr0_value;       // preset for timer register a 1 ms
-
     //Config interrupciones
     INTCONbits.GIE = 1; //Se habilitan interrupciones globales
     PIE1bits.ADIE = 1;  //Se habilita interrupcion del ADC
     PIR1bits.ADIF = 0; // Limpieza de bandera del ADC
     INTCONbits.PEIE = 1; // Se habilitan interrupciones de periféricos
+    INTCONbits.T0IE = 1; // Se habilita interrupciones del TMR0
+    INTCONbits.T0IF = 0; // Limpieza de bandera
     return;
  }
 

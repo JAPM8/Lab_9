@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.35\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Lab_9.X.production.sym \
   --cmf=dist/default/production\Lab_9.X.production.cmf -z -Q16F887 \
-  -oC:\Users\javyp\AppData\Local\Temp\xcAsh6o.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\javyp\AppData\Local\Temp\xcAseec.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Lab_9.X.production.map \
-  --md=C:\Users\javyp\AppData\Local\Temp\xcAsh6o.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\javyp\AppData\Local\Temp\xcAseec.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\javyp\AppData\Local\Temp\xcAsh6o.o \
+  -pfunctab=ENTRY -k C:\Users\javyp\AppData\Local\Temp\xcAseec.o \
   dist/default/production\Lab_9.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\javyp\AppData\Local\Temp\xcAsh6o.o
+C:\Users\javyp\AppData\Local\Temp\xcAseec.o
                 end_init                             10       10        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -40,14 +40,14 @@ dist/default/production\Lab_9.X.production.o
                 idloc                              2000     2000        4        0       5
                 text9                               384      384      288        8       0
                 text8                               60C      60C      1DD        8       0
-                text7                               C0E      C0E       27     181C       0
+                text7                               C0D      C0D       27     181A       0
                 text6                                23       23      361        8       0
-                text5                               D1E      D1E       9C     1A3C       0
-                text4                               E6C      E6C       BA     1CD8       0
-                text3                               DBA      DBA       B2     1B74       0
-                text2                               F26      F26       DA     1E4C       0
-                text1                               C35      C35       6C     186A       0
-                maintext                            CA1      CA1       7D     1942       0
+                text5                               CEA      CEA       9C     19D4       0
+                text4                               E38      E38       BA     1C70       0
+                text3                               D86      D86       B2     1B0C       0
+                text2                               EF2      EF2      10E     1DE4       0
+                text1                               C80      C80       6A     1900       0
+                maintext                            C34      C34       4C     1868       0
                 cstackBANK0                          20       20       4F       20       1
                 cstackCOMMON                         70       70        E       70       1
                 cstackBANK1                          A0       A0       11       A0       1
@@ -61,14 +61,14 @@ TOTAL           Name                               Link     Load   Length     Sp
                 reset_vec                             0        0        3         0
                 text9                               384      384      288         0
                 text8                               60C      60C      1DD         0
-                text7                               C0E      C0E       27         0
+                text7                               C0D      C0D       27         0
                 text6                                23       23      361         0
-                text5                               D1E      D1E       9C         0
-                text4                               E6C      E6C       BA         0
-                text3                               DBA      DBA       B2         0
-                text2                               F26      F26       DA         0
-                text1                               C35      C35       6C         0
-                maintext                            CA1      CA1       7D         0
+                text5                               CEA      CEA       9C         0
+                text4                               E38      E38       BA         0
+                text3                               D86      D86       B2         0
+                text2                               EF2      EF2      10E         0
+                text1                               C80      C80       6A         0
+                maintext                            C34      C34       4C         0
 
         CLASS   STRCODE        
 
@@ -124,13 +124,13 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackBANK0                    000020  00004F  00006F        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 cstackBANK1                    0000A0  00001B  0000BB        A0       1  BANK1       1
-                text7                          000C0E  000027  000C35      181C       0  CODE        2
-                text1                          000C35  00006C  000CA1      186A       0  CODE        2
-                maintext                       000CA1  00007D  000D1E      1942       0  CODE        2
-                text5                          000D1E  00009C  000DBA      1A3C       0  CODE        2
-                text3                          000DBA  0000B2  000E6C      1B74       0  CODE        2
-                text4                          000E6C  0000BA  000F26      1CD8       0  CODE        2
-                text2                          000F26  0000DA  001000      1E4C       0  CODE        2
+                text7                          000C0D  000027  000C34      181A       0  CODE        2
+                maintext                       000C34  00004C  000C80      1868       0  CODE        2
+                text1                          000C80  00006A  000CEA      1900       0  CODE        2
+                text5                          000CEA  00009C  000D86      19D4       0  CODE        2
+                text3                          000D86  0000B2  000E38      1B0C       0  CODE        2
+                text4                          000E38  0000BA  000EF2      1C70       0  CODE        2
+                text2                          000EF2  00010E  001000      1DE4       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
@@ -141,14 +141,14 @@ UNUSED ADDRESS RANGES
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         07E9-0C0D             17
+                         07E9-0C0C             17
                          1000-1FFF            800
         CONST            0003-0003              1           2
-                         07E9-0C0D            100
+                         07E9-0C0C            100
                          1000-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         07E9-0C0D            100
+                         07E9-0C0C            100
                          1000-1FFF            100
         RAM              006F-006F              1           1
                          00BB-00EF             35
@@ -159,10 +159,10 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STRCODE          0003-0003              1           2
-                         07E9-0C0D            425
+                         07E9-0C0C            424
                          1000-1FFF           1000
         STRING           0003-0003              1           2
-                         07E9-0C0D            100
+                         07E9-0C0C            100
                          1000-1FFF            100
 
                                   Symbol Table
@@ -194,13 +194,11 @@ _PIE1bits                (abs)        008C
 _PIR1bits                (abs)        000C
 _PORTA                   (abs)        0005
 _PORTCbits               (abs)        0007
-_PORTD                   (abs)        0008
 _PR2                     (abs)        0092
 _T2CONbits               (abs)        0012
 _TMR0                    (abs)        0001
 _TRISA                   (abs)        0085
 _TRISCbits               (abs)        0087
-_TRISD                   (abs)        0088
 __Habs1                  abs1         0000
 __Hbank0                 bank0        0000
 __Hbank1                 bank1        0000
@@ -276,7 +274,7 @@ __Ltext                  text         0000
 __S0                     (abs)        1000
 __S1                     (abs)        00BB
 __S3                     (abs)        0000
-__Umul8_16               text7        0C0E
+__Umul8_16               text7        0C0D
 __Umul8_16@multiplicand  cstackCOMMON 0070
 __Umul8_16@multiplier    cstackCOMMON 0078
 __Umul8_16@product       cstackCOMMON 0074
@@ -306,7 +304,7 @@ ___flmul@grs             cstackBANK0  0048
 ___flmul@prod            cstackBANK0  004E
 ___flmul@sign            cstackBANK0  0047
 ___flmul@temp            cstackBANK0  0052
-___fltol                 text5        0D1E
+___fltol                 text5        0CEA
 ___fltol@exp1            cstackBANK0  006D
 ___fltol@f1              cstackBANK0  0068
 ___fltol@sign1           cstackBANK0  006C
@@ -315,43 +313,43 @@ ___latbits               (abs)        0002
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-___xxtofl                text4        0E6C
+___xxtofl                text4        0E38
 ___xxtofl@arg            cstackCOMMON 007A
 ___xxtofl@exp            cstackCOMMON 0079
 ___xxtofl@sign           cstackCOMMON 0078
 ___xxtofl@val            cstackCOMMON 0070
-__end_of__Umul8_16       text7        0C35
+__end_of__Umul8_16       text7        0C34
 __end_of___fladd         text9        060C
 __end_of___fldiv         text8        07E9
 __end_of___flmul         text6        0384
-__end_of___fltol         text5        0DBA
-__end_of___xxtofl        text4        0F26
+__end_of___fltol         text5        0D86
+__end_of___xxtofl        text4        0EF2
 __end_of__initialization cinit        001F
 __end_of_isr             text2        1000
-__end_of_main            maintext     0D1E
-__end_of_map             text3        0E6C
-__end_of_setup           text1        0CA1
+__end_of_main            maintext     0C80
+__end_of_map             text3        0E38
+__end_of_setup           text1        0CEA
 __initialization         cinit        0013
 __pbssBANK1              bssBANK1     00B1
 __pcstackBANK0           cstackBANK0  0020
 __pcstackBANK1           cstackBANK1  00A0
 __pcstackCOMMON          cstackCOMMON 0070
 __pintentry              intentry     0004
-__pmaintext              maintext     0CA1
-__ptext1                 text1        0C35
-__ptext2                 text2        0F26
-__ptext3                 text3        0DBA
-__ptext4                 text4        0E6C
-__ptext5                 text5        0D1E
+__pmaintext              maintext     0C34
+__ptext1                 text1        0C80
+__ptext2                 text2        0EF2
+__ptext3                 text3        0D86
+__ptext4                 text4        0E38
+__ptext5                 text5        0CEA
 __ptext6                 text6        0023
-__ptext7                 text7        0C0E
+__ptext7                 text7        0C0D
 __ptext8                 text8        060C
 __ptext9                 text9        0384
 _cont_tmr0               bssBANK1     00B5
-_isr                     text2        0F26
-_main                    maintext     0CA1
-_map                     text3        0DBA
-_setup                   text1        0C35
+_isr                     text2        0EF2
+_main                    maintext     0C34
+_map                     text3        0D86
+_setup                   text1        0C80
 _tiempo_h                bssBANK1     00B1
 btemp                    (abs)        007E
 end_of_initialization    cinit        001F
@@ -378,22 +376,22 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\xxtofl.c
-		___xxtofl      		CODE           	0E6C	0000	186
+		___xxtofl      		CODE           	0E38	0000	186
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\xxtofl.c estimated size: 186
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\fltol.c
-		___fltol       		CODE           	0D1E	0000	156
+		___fltol       		CODE           	0CEA	0000	156
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\fltol.c estimated size: 156
 
 main_postLab.c
-		_map           		CODE           	0DBA	0000	178
-		_main          		CODE           	0CA1	0000	125
-		_isr           		CODE           	0F26	0000	218
-		_setup         		CODE           	0C35	0000	108
+		_map           		CODE           	0D86	0000	178
+		_main          		CODE           	0C34	0000	76
+		_isr           		CODE           	0EF2	0000	270
+		_setup         		CODE           	0C80	0000	106
 
-main_postLab.c estimated size: 629
+main_postLab.c estimated size: 630
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\sprcmul.c
 		___flmul       		CODE           	0023	0000	865
@@ -411,7 +409,7 @@ shared
 shared estimated size: 12
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\Umul8_16.c
-		__Umul8_16     		CODE           	0C0E	0000	39
+		__Umul8_16     		CODE           	0C0D	0000	39
 
 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\Umul8_16.c estimated size: 39
 
